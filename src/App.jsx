@@ -1,4 +1,4 @@
-import { Routes, Route, } from "react-router";
+import { Routes, Route } from "react-router";
 import { Suspense } from "react";
 import { Home } from "./pages/Home/Home";
 import { Header } from "./pages/sections/Header/Header";
@@ -10,9 +10,9 @@ function App() {
     <Suspense fallback={<div>loading...</div>}>
       <Routes>
         <Route path="/" element={<Header />}>
-          <Route index element={<Home/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/singup" element={<Singup/>}/>
+          <Route index element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/singup" element={<Singup />} />
         </Route>
       </Routes>
     </Suspense>
