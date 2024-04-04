@@ -1,0 +1,26 @@
+.add-product-form {
+  display: flex;
+  align-items: center;
+}
+
+.add-product-form input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #9B9FAA
+}
+
+.add-button {
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
