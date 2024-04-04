@@ -11,7 +11,7 @@ export const Home = () => {
       <div className="container">
         <main>
           <Calculator />
-          
+
         </main>
       </div>
     </HomeBackground>

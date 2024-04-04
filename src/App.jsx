@@ -11,7 +11,8 @@ import { CalculatorPage } from "./pages/Calculator/CalculatorPage.jsx";
 
 
 function App() {
-  const { isLoggin } = useSelector((state) => state.auth); 
+  let { isLoggin } = useSelector((state) => state.auth); 
+  isLoggin = true;
   return (
     
     <Suspense fallback={<spinner/>}>

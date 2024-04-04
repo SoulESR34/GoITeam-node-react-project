@@ -172,7 +172,7 @@ import Modal from "../../Modal/Modal.jsx";
 import styles from "./Modal.module.css";
 import productos from "./Modal.json/productos.json";
 
-const Calculator = () => {
+export const Calculator = () => {
   const [formData, setFormData] = useState({
     height: "",
     age: "",
@@ -325,4 +325,3 @@ const Calculator = () => {
   );
 };
 
-export default Calculator;

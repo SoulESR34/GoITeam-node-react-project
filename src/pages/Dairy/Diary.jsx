@@ -4,7 +4,8 @@ export const Diary = () => {
     return (
       <div className="container">
         <main>
-            <Calendar date={new Date()} />
+          <Calendar date={new Date()} />
+          
         </main>
       </div>
     );
