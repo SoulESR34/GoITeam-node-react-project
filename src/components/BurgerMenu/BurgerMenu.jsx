@@ -1,10 +1,13 @@
-import React from 'react'
-import { modalContainer } from './BurgerMenu.styled'
+import React from "react";
+import { ModalContainer, NavbarContainer, LinkMenu } from "./BurgerMenu.styled";
 
-export const BurgerMenu = ({childen}) => {
+export const BurgerMenu = ({ eventClick }) => {
   return (
-    <modalContainer>
-        {...childen}
-    </modalContainer>
-  )
-}
+    <ModalContainer>
+      <NavbarContainer>
+        <LinkMenu onClick={() => eventClick()} to="/dairy">DIARIO</LinkMenu>
+        <LinkMenu onClick={() => eventClick()} to="/calculator">CALCULADORA</LinkMenu>
+      </NavbarContainer>
+    </ModalContainer>
+  );
+};

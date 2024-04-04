@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 const { VITE_SERVER_URL } = import.meta.env;
 
-export const loginAuth = async (handleError, body, endpoint) => {
+export const requestAuth = async (handleError, body, endpoint) => {
   try {
     const options = {
       method: "POST",

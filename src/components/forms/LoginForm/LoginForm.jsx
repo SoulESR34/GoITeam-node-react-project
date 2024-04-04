@@ -6,18 +6,20 @@ import {
   Label,
   InputText,
   Input,
-  SubmitWrapper
+  SubmitWrapper,
 } from "../Common/Form.styled.js";
 import { SubmitButton } from "../../Buttons/SubmitButton/SubmitButton.jsx";
+import { RedirectButton } from "../../Buttons/RedirectButton/RedirectButton.jsx";
 
-
-
-const handleSendToRegistration = (e) =>{
-  navigate('/singup')
-}
+const handleSendToRegistration = (e) => {
+  e.preventDefault();
+  navigate("/singup");
+};
 
 export const LoginForm = () => {
   return (
+    <>
+    
     <Form action="POST">
       <Title>INICIAR SESIÓN</Title>
       <WrapperInputs>
@@ -31,10 +33,14 @@ export const LoginForm = () => {
           <Input name="password" type="password" required></Input>
         </Label>
         <SubmitWrapper>
-          <SubmitButton type="submit" text="Crear cuenta" />
-          <SubmitButton onClick={() => handleSendToRegistration()} type="button" text="Iniciar sesión" login={false} />
+          <SubmitButton
+            onClick={() => handleSendToRegistration()}
+            text="Iniciar sesión"
+          />
+          <RedirectButton route="/singup" text="Crear cuenta"/>
         </SubmitWrapper>
       </WrapperInputs>
     </Form>
+    </>
   );
 };

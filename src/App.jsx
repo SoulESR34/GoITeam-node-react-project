@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router";
-import { HomeHeader } from "./pages/sections/Headers/HomeHeader/HomeHeader.jsx";
-import { useSelector } from "react-redux";
+import { HomeHeader } from "./pages/sections/Headers/HomeHeader/HomeHeader.jsx";import { useSelector } from "react-redux";
 import { UserHeader } from "./pages/sections/Headers/UserHeader/UserHeader.jsx";
 import { Singup } from "./pages/Auth/Signup/Signup.jsx";
 import { Login } from "./pages/Auth/Login/Login.jsx";
@@ -14,7 +13,7 @@ function App() {
     <Suspense fallback={<spinner/>}>
       <Routes>
 
-        <Route path="/" element={isLoggin ? <HomeHeader /> : <UserHeader/>}>
+        <Route path="/" element={!isLoggin ? <HomeHeader /> : <UserHeader/>}>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/singup" element={<Singup />} />

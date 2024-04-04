@@ -9,6 +9,8 @@ import {
   SubmitWrapper
 } from "../Common/Form.styled.js";
 import { SubmitButton } from "../../Buttons/SubmitButton/SubmitButton.jsx";
+import { RedirectButton } from "../../Buttons/RedirectButton/RedirectButton.jsx";
+
 
 export const SingupForm = () => {
   return (
@@ -32,7 +34,7 @@ export const SingupForm = () => {
       </WrapperInputs>
         <SubmitWrapper>
           <SubmitButton text="Crear cuenta" />
-          <SubmitButton text="Iniciar sesión" login={false} />
+          <RedirectButton route="/login" text="Iniciar Sesión"/>
         </SubmitWrapper>
     </Form>
   );

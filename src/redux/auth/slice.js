@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginThunk } from "./operations";
+import { loginThunk, signupThunk } from "./operations";
 
 const initialState = {
   user: { name: null, email: null },
-  token: null,
   isLogged: false,
   isLoading: false,
   error: null,
@@ -21,7 +20,6 @@ const handleRejected = (state, action) => {
 const handleFullfied = (state, action) => {
   const {name, email} = action.payload.user
   state.user = { name, email }
-  state.token = payload.accessToken
   state.isLogged = true
   state.isLoading = false
 };
@@ -31,9 +29,13 @@ const authSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
   builder
-    .addCase(loginThunk.pending, (state) => handlePending())
-    .addCase(loginThunk.fulfilled, (state) => handleRejected())
-    .addCase(loginThunk.rejected, (state) => handleFullfied())
+    .addCase(loginThunk.pending, (state) => handlePending(state))
+    .addCase(loginThunk.fulfilled, (state) => handleRejected(state, action))
+    .addCase(loginThunk.rejected, (state) => handleFullfied(state, action))
+
+    .addCase(signupThunk.pending, (state) => handlePending(state))
+    .addCase(signupThunk.fulfilled, (state) => handleRejected(state, action))
+    .addCase(signupThunk.rejected, (state) => handleFullfied(state, action))
   },
 });
 

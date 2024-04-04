@@ -11,11 +11,19 @@ import {
   NavbarUser,
   NavbarUserMobile,
   UserInfo,
+  MobileContainerUserInfo,
 } from "./UserHeader.styled.js";
 import { BurgerMenuIcon } from "../../../../components/BurgerMenu/icon/BurgerMenuIcon.jsx";
 import { BurgerMenu } from "../../../../components/BurgerMenu/BurgerMenu.jsx";
+import { useState } from "react";
 
 export const UserHeader = ({ username }) => {
+  const [isOpen, setIsOpend] = useState(false);
+
+  const handleMenuOpening = () => {
+    setIsOpend((isOpen) => !isOpen);
+  };
+
   return (
     <>
       <header>
@@ -29,12 +37,14 @@ export const UserHeader = ({ username }) => {
             </NavLinkWrapper>
           </NavbarPage>
 
-          <NavbarUser>
-            <UserInfo $primary>{username ? username : "Usuario"}</UserInfo>
-            <UserInfo>Salir</UserInfo>
-          </NavbarUser>
+          <MobileContainerUserInfo>
+            <NavbarUser>
+              <UserInfo $primary>{username ? username : "Usuario"}</UserInfo>
+              <UserInfo>Salir</UserInfo>
+            </NavbarUser>
 
-          <BurgerMenuIcon />
+            <BurgerMenuIcon eventClick={handleMenuOpening} isOpen={isOpen} />
+          </MobileContainerUserInfo>
         </HeaderWrapper>
 
         <div>
@@ -44,7 +54,8 @@ export const UserHeader = ({ username }) => {
           </NavbarUserMobile>
         </div>
       </header>
-      <Outlet />
+      {isOpen? <BurgerMenu eventClick={handleMenuOpening}/> : <Outlet />}
+      
     </>
   );
 };

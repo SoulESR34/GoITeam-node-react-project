@@ -35,3 +35,8 @@ export const NavbarUserMobile = styled.div`
     display: flex;
   }
 `
+
+export const MobileContainerUserInfo = styled.div`
+  display: flex;
+  gap: 40px;
+` 

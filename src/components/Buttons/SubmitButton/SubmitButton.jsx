@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "./submitButton.styled.js";
 
-export const SubmitButton = ({ type, text, login = true }) => {
-  return <Button type={type} $primary={login}>{text}</Button>;
+export const SubmitButton = ({ type, text }) => {
+  return <Button type={type}>{text}</Button>;
 };
