@@ -1,12 +1,13 @@
-import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const HeaderWrapper = styled.nav`
+export const HeaderWrapper = styled.div`
   max-width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 20px 0;
+  justify-content: ${(props) =>
+    props.$between ? "space-between" : "flex-start"};
+  padding: 20px;
   gap: 60px;
 
   @media (width < 1024px) {
@@ -17,15 +18,6 @@ export const HeaderWrapper = styled.nav`
   }
 `;
 
-export const Logo = styled.div`
-  padding-bottom: 40px;
-  padding-left: 20px;
-
-  @media only screen and (min-width: 601px) and (max-width: 1024px) {
-    display: flex;
-  }
-`;
-
 export const NavLinkWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -33,6 +25,10 @@ export const NavLinkWrapper = styled.div`
 
   @media only screen and (min-width: 601px) and (max-width: 1024px) {
     padding-right: 20px;
+  }
+
+  @media (width < 768px) {
+    display: ${(props) => (props.$user ? "none" : "flex")};
   }
 `;
 
@@ -47,6 +43,10 @@ export const NavList = styled(NavLink)`
 
   &:hover,
   &:focus {
-    color: #747bff;
+    color: black;
+  }
+
+  &.active {
+    color: black;
   }
 `;
