@@ -6,12 +6,14 @@ import { Singup } from "./pages/Auth/Signup/Signup.jsx";
 import { Login } from "./pages/Auth/Login/Login.jsx";
 import { Home } from "./pages/Home/Home.jsx";
 import { Suspense } from "react";
+import { Spinner } from "./components/Spinner/Spinner.jsx"
+
 
 
 function App() {
   const { isLoggin } = useSelector((state) => state.auth);
   return (
-    <Suspense fallback={<spinner/>}>
+    <Suspense fallback={<Spinner/>}>
       <Routes>
 
         <Route path="/" element={isLoggin ? <HomeHeader /> : <UserHeader/>}>

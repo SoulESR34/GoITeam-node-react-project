@@ -1,13 +1,17 @@
-.diary-date-calendar {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
+.calendar {
+  display: flex;
+  align-items: center;
 }
 
-.diary-date-calendar span {
-  font-size: 16px;
-  color: #333;
+.calendar__date {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #212121;
+  margin-right: 10px;
 }
 
+.calendar__icon {
+  width: 20px;
+  height: 20px;
+}

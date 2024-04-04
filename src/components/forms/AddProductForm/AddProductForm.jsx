@@ -1,40 +1,50 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../actions/productActions";
-import "./AddProductForm.css";
+import PropTypes from "prop-types"; // 
+import { connect } from "react-redux";
+import { addProduct } from "redux";
+import styles from "./AddProductForm.module.css";
 
-const AddProductForm = () => {
+export const AddProductForm = ({ addProduct }) => {
   const [productName, setProductName] = useState("");
   const [grams, setGrams] = useState("");
-  const dispatch = useDispatch();
 
-  const handleAddProduct = () => {
-    
-    dispatch(addProduct({ name: productName, grams: grams }));
-   
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (productName.trim() === "" || grams.trim() === "") {
+      alert("Por favor, complete todos los campos.");
+      return;
+    }
+    addProduct({ productName, grams });
     setProductName("");
     setGrams("");
   };
 
   return (
-    <div className="add-product-form">
+    <form onSubmit={handleSubmit} className={styles.form}>
       <input
         type="text"
         placeholder="Ingrese nombre del producto"
         value={productName}
         onChange={(e) => setProductName(e.target.value)}
+        className={styles.input}
       />
       <input
         type="text"
         placeholder="Gramos"
         value={grams}
         onChange={(e) => setGrams(e.target.value)}
+        className={styles.input}
       />
-      <button className="add-button" onClick={handleAddProduct}>
+      <button type="submit" className={styles.button}>
         +
       </button>
-    </div>
+    </form>
   );
 };
 
-export default AddProductForm;
+
+AddProductForm.propTypes = {
+  addProduct: PropTypes.func.isRequired, 
+};
+
+connect(null, { addProduct })(AddProductForm);

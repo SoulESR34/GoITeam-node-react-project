@@ -1,8 +1,8 @@
 
 
 import { Calculator } from "../../components/forms/Calculator/Calculator";
-
 import { HomeBackground } from "../common/HomeBackground.styled";
+
 
 
 export const Home = () => {
@@ -11,6 +11,7 @@ export const Home = () => {
       <div className="container">
         <main>
           <Calculator />
+      
         </main>
       </div>
     </HomeBackground>
