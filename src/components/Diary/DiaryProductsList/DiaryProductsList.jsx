@@ -1,8 +1,10 @@
-import React, { useState } from "react";
 import css from "./DiaryProductsList.module.css";
 import products from "../../../products.json";
+import { useState } from "react";
 
 export const DiaryProductsList = () => {
+  
+
   const [productList, setProductList] = useState([]);
 
   const handleAddProduct = (event) => {
