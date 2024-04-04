@@ -54,7 +54,7 @@ export const UserHeader = ({ username }) => {
           </NavbarUserMobile>
         </div>
       </header>
-      {isOpen? <BurgerMenu eventClick={handleMenuOpening}/> : <Outlet />}
+      {isOpen? <BurgerMenu eventClick={handleMenuOpening}/> : <Outlet/>}
       
     </>
   );
