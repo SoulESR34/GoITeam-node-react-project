@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+oductActions.js;
 import { useDispatch } from "react-redux";
 import { addProduct } from "../actions/productActions";
 import "./AddProductForm.css";
@@ -9,9 +10,8 @@ export const AddProductForm = () => {
   const dispatch = useDispatch();
 
   const handleAddProduct = () => {
-    
     dispatch(addProduct({ name: productName, grams: grams }));
-   
+
     setProductName("");
     setGrams("");
   };
@@ -36,5 +36,3 @@ export const AddProductForm = () => {
     </div>
   );
 };
-
-
