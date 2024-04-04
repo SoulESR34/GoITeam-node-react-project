@@ -79,14 +79,12 @@
 //   );
 // };
 import React, { useState, useEffect } from "react";
-import { Wrapper, CheckListInput } from "./Calculator.styled.js";
+import { Wrapper, CheckListInput ,Title, WrapperInputs} from "./Calculator.styled.js";
 import {
   Form,
-  Title,
   Label,
   InputText,
   Input,
-  WrapperInputs,
 } from "../Common/Form.styled.js";
 import { LosingWeightButton } from "../../Buttons/LosingWeightButton/LosingWeightButton.jsx";
 import Modal from "../../Modal/Modal.jsx";
