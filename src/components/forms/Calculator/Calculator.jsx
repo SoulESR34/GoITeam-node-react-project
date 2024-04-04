@@ -14,7 +14,7 @@ import { LosingWeightButton } from "../../Buttons/LosingWeightButton/LosingWeigh
 export const Calculator = () => {
   return (
     <Wrapper>
-      <Form>
+      <Form onSubmit={(e) => handleCalc(e)}>
         <Title>Calcula tu ingesta diaria de calorías ahora mismo</Title>
         <WrapperInputs>
           <Label htmlFor="height">
