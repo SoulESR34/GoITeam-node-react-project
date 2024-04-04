@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Wrapper, CheckListInput } from "./Calculator.styled.js";
 import {
@@ -14,7 +13,7 @@ import Modal from "../../Modal/Modal.jsx";
 
 import foodsNotAllowed from "./findFoodsNotAllowed.json";
 
-const Calculator = () => {
+export const Calculator = () => {
   const [formData, setFormData] = useState({
     height: "",
     age: "",
@@ -57,20 +56,17 @@ const Calculator = () => {
     setIsModalOpen(false);
   };
 
-const findFoodsNotAllowed = () => {
-  const { bloodType } = formData;
-  // Filtrar los alimentos no permitidos para el grupo sanguíneo seleccionado
-  const foods = foodsNotAllowed.filter(food => {
-    // Verificar si `food.groupBloodNotAllowed` está definido y tiene una entrada en el índice `bloodType`
-    return food.groupBloodNotAllowed && food.groupBloodNotAllowed[bloodType];
-  });
-  // Obtener solo los títulos de los primeros 10 alimentos no permitidos
-  const firstTenFoods = foods.slice(0, 10).map(food => food.title);
-  return firstTenFoods;
-};
-
-
-
+  const findFoodsNotAllowed = () => {
+    const { bloodType } = formData;
+    // Filtrar los alimentos no permitidos para el grupo sanguíneo seleccionado
+    const foods = foodsNotAllowed.filter((food) => {
+      // Verificar si `food.groupBloodNotAllowed` está definido y tiene una entrada en el índice `bloodType`
+      return food.groupBloodNotAllowed && food.groupBloodNotAllowed[bloodType];
+    });
+    // Obtener solo los títulos de los primeros 10 alimentos no permitidos
+    const firstTenFoods = foods.slice(0, 10).map((food) => food.title);
+    return firstTenFoods;
+  };
 
   return (
     <Wrapper>
@@ -153,11 +149,12 @@ const findFoodsNotAllowed = () => {
         </LosingWeightButton>
       </Form>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <p>Calorías diarias a consumir: {formData.calories && formData.calories.toFixed(2)}</p>
+        <p>
+          Calorías diarias a consumir:{" "}
+          {formData.calories && formData.calories.toFixed(2)}
+        </p>
         <p>Alimentos no permitidos: {findFoodsNotAllowed().join(", ")}</p>
       </Modal>
     </Wrapper>
   );
 };
-
-export default Calculator;
