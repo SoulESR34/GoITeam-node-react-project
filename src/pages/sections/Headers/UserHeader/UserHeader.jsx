@@ -15,7 +15,6 @@ import {
 import { BurgerMenuIcon } from "../../../../components/BurgerMenu/icon/BurgerMenuIcon.jsx";
 
 
-
 export const UserHeader = ({ username }) => {
   return (
     <>
@@ -45,8 +44,7 @@ export const UserHeader = ({ username }) => {
           </NavbarUserMobile>
         </div>
       </header>
-      
-      <Outlet/>
+      <Outlet />
     </>
   );
 };
