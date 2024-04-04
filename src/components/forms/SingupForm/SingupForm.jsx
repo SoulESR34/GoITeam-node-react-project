@@ -10,17 +10,16 @@ import {
 } from "../Common/Form.styled.js";
 import { SubmitButton } from "../../Buttons/SubmitButton/SubmitButton.jsx";
 
-
-
-const handleSendToRegistration = (e) =>{
-  navigate('/singup')
-}
-
-export const LoginForm = () => {
+export const SingupForm = () => {
   return (
-    <Form action="POST">
+    <Form action="">
       <Title>INICIAR SESIÓN</Title>
       <WrapperInputs>
+        <Label htmlFor="name">
+          <InputText>Nombre*</InputText>
+          <Input name="name" type="text" required></Input>
+        </Label>
+
         <Label htmlFor="email">
           <InputText>Correo electronico *</InputText>
           <Input name="email" type="email" required></Input>
@@ -30,11 +29,11 @@ export const LoginForm = () => {
           <InputText>Contraseña *</InputText>
           <Input name="password" type="password" required></Input>
         </Label>
-        <SubmitWrapper>
-          <SubmitButton type="submit" text="Crear cuenta" />
-          <SubmitButton onClick={() => handleSendToRegistration()} type="button" text="Iniciar sesión" login={false} />
-        </SubmitWrapper>
       </WrapperInputs>
+        <SubmitWrapper>
+          <SubmitButton text="Crear cuenta" />
+          <SubmitButton text="Iniciar sesión" login={false} />
+        </SubmitWrapper>
     </Form>
   );
 };

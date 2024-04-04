@@ -17,8 +17,14 @@ export const WrapperInputs = styled.div`
   }
 `
 
+export const SubmitWrapper = styled.div`
+  display: flex;
+  gap: 10px;
+`
+
 export const Form = styled.form`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 50px;
 `;
 export const Label = styled.label`

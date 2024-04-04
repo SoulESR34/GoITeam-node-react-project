@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import { Wrapper, CheckListInput } from "./Calculator.styled.js";
+import React, { useState, useEffect } from "react";
+import { Wrapper, CheckListInput ,Title, WrapperInputs} from "./Calculator.styled.js";
 import {
   Form,
-  Title,
   Label,
   InputText,
   Input,
-  WrapperInputs,
 } from "../Common/Form.styled.js";
 import { LosingWeightButton } from "../../Buttons/LosingWeightButton/LosingWeightButton.jsx";
 import Modal from "../../Modal/Modal.jsx";
-import styles from "./Modal.module.css";
-import productos from "./Modal.json/productos.json";
 
-const Calculator = () => {
+import foodsNotAllowed from "./findFoodsNotAllowed.json";
+
+export const Calculator = () => {
   const [formData, setFormData] = useState({
     height: "",
     age: "",
@@ -21,8 +19,17 @@ const Calculator = () => {
     desiredWeight: "",
     bloodType: "",
     calories: null,
+    foodsNotAllowed: [],
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Cargar los alimentos no permitidos del JSON
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      foodsNotAllowed: foodsNotAllowed.map((food) => food.name),
+    }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +38,7 @@ const Calculator = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Realizar el cálculo de las calorías diarias
+    // Realiza el cálculo de las calorías diarias
     const calories =
       10 * formData.actualWeight +
       6.25 * formData.height -
@@ -50,18 +57,18 @@ const Calculator = () => {
   const findFoodsNotAllowed = () => {
     const { bloodType } = formData;
     // Filtrar los alimentos no permitidos para el grupo sanguíneo seleccionado
-    const foods = productos.filter((food) => {
-      // Verificar si food.groupBloodNotAllowed está definido y tiene una entrada en el índice bloodType
+    const foods = foodsNotAllowed.filter((food) => {
+      // Verificar si `food.groupBloodNotAllowed` está definido y tiene una entrada en el índice `bloodType`
       return food.groupBloodNotAllowed && food.groupBloodNotAllowed[bloodType];
     });
-    // Obtener solo los títulos de los primeros 4 alimentos no permitidos
-    const firstFourFoods = foods.slice(0, 4).map((food) => food.title);
-    return firstFourFoods;
+    // Obtener solo los títulos de los primeros 10 alimentos no permitidos
+    const firstTenFoods = foods.slice(0, 10).map((food) => food.title);
+    return firstTenFoods;
   };
 
   return (
     <Wrapper>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={(e) => handleCalc(e)}>
         <Title>Calcula tu ingesta diaria de calorías ahora mismo</Title>
         <WrapperInputs>
           <Label htmlFor="height">
@@ -139,31 +146,13 @@ const Calculator = () => {
           Calcular Calorías Diarias
         </LosingWeightButton>
       </Form>
-      <Modal
-        isOpen={isModalOpen && formData.calories !== null}
-        onClose={handleCloseModal}
-      >
-        {formData.calories !== null && (
-          <>
-            <h1 className={styles.text}>
-              Tu ingesta diaria recomendada de calorías es:{" "}
-            </h1>
-            <p className={styles["calories-value"]}>
-              {formData.calories.toFixed(2)}{" "}
-              <span className={styles.kcal}>kcal</span>
-            </p>
-
-            <h3>Alimentos que no deberías comer:</h3>
-            <ol>
-              {findFoodsNotAllowed().map((food, index) => (
-                <li key={index}>{food}</li>
-              ))}
-            </ol>
-          </>
-        )}
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        <p>
+          Calorías diarias a consumir:{" "}
+          {formData.calories && formData.calories.toFixed(2)}
+        </p>
+        <p>Alimentos no permitidos: {findFoodsNotAllowed().join(", ")}</p>
       </Modal>
     </Wrapper>
   );
 };
-
-export default Calculator;
