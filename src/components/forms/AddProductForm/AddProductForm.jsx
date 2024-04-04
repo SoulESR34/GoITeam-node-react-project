@@ -1,40 +1,53 @@
+
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addProduct } from "../actions/productActions";
-import "./AddProductForm.css";
+import PropTypes from "prop-types"; // 
+import { connect } from "react-redux";
+import { addProduct } from "redux";
+import styles from "./AddProductForm.module.css";
 
-const AddProductForm = () => {
-  const [productName, setProductName] = useState("");
-  const [grams, setGrams] = useState("");
-  const dispatch = useDispatch();
+export const AddProductForm = ({ addProduct }) => {
 
-  const handleAddProduct = () => {
-    
-    dispatch(addProduct({ name: productName, grams: grams }));
-   
-    setProductName("");
-    setGrams("");
+    const [productName, setProductName] = useState("");
+    const [grams, setGrams] = useState("");
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (productName.trim() === "" || grams.trim() === "") {
+        alert("Por favor, complete todos los campos.");
+        return;
+      }
+      addProduct({ productName, grams });
+      setProductName("");
+      setGrams("");
+    };
+
+    return (
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <input
+          type="text"
+          placeholder="Ingrese nombre del producto"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+          className={styles.input}
+        />
+        <input
+          type="text"
+          placeholder="Gramos"
+          value={grams}
+          onChange={(e) => setGrams(e.target.value)}
+          className={styles.input}
+        />
+        <button type="submit" className={styles.button}>
+          +
+        </button>
+      </form>
+    );
   };
 
-  return (
-    <div className="add-product-form">
-      <input
-        type="text"
-        placeholder="Ingrese nombre del producto"
-        value={productName}
-        onChange={(e) => setProductName(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Gramos"
-        value={grams}
-        onChange={(e) => setGrams(e.target.value)}
-      />
-      <button className="add-button" onClick={handleAddProduct}>
-        +
-      </button>
-    </div>
-  );
-};
 
-export default AddProductForm;
+  AddProductForm.propTypes = {
+    addProduct: PropTypes.func.isRequired,
+  };
+
+connect(null, { addProduct })(AddProductForm);
+

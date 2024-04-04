@@ -10,7 +10,7 @@ export const HomeHeader = () => {
   return (
     <>
       <HeaderWrapper className="container">
-        <Logo/>
+        <Logo />
         <NavLinkWrapper>
           <NavList to="/login">INICIAR SESIÓN</NavList>
           <NavList to="/singup">CREAR UNA CUENTA</NavList>

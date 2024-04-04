@@ -1,26 +1,24 @@
-.add-product-form {
+form {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 }
 
-.add-product-form input {
-  margin-right: 10px;
+input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
   padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: #9B9FAA
+  margin-right: 10px;
+  color: #9B9FAA;
 }
 
-.add-button {
-  background-color: orange;
+button {
+  padding: 8px 12px;
+  background-color: #FC842D;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 16px;
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }

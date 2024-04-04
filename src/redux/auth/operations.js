@@ -31,3 +31,4 @@ export const signupThunk = createAsyncThunk(
     return await requestAuth(thinkAPI.rejectWithValue, credentials, "/register");
   }
 );
+
