@@ -1,11 +1,11 @@
 import { Calendar } from "../../components/Calendar/Calendar";
-import { AddProductForm } from "../../components/forms/AddProductForm/AddProductForm"; 
 
 export const Diary = () => { 
     return (
-        <>
+      <div className="container">
+        <main>
             <Calendar date={new Date()} />
-            <AddProductForm />
-        </>
+        </main>
+      </div>
     );
 }
