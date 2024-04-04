@@ -1,0 +1,16 @@
+.text {
+  width: 700;
+  font-size: 26px;
+  line-height: 2.4;
+  text-align: center;
+}
+
+.calories-value {
+  font-size: 30px;
+  color: rgba(38, 64, 97, 1);
+}
+
+.kcal {
+  margin-left: 4px;
+  font-size: 15px;
+}

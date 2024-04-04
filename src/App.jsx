@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import { HomeHeader } from "./pages/sections/Headers/HomeHeader/HomeHeader.jsx";
 import { useSelector } from "react-redux";
 import { UserHeader } from "./pages/sections/Headers/UserHeader/UserHeader.jsx";
@@ -8,27 +8,31 @@ import { Home } from "./pages/Home/Home.jsx";
 import { Suspense } from "react";
 import { Spinner } from "./components/Spinner/Spinner.jsx"
 
+import { Diary } from "./pages/Dairy/Diary.jsx"; 
+import { CalculatorPage } from "./pages/Calculator/CalculatorPage.jsx";
 
 
 function App() {
-  const { isLoggin } = useSelector((state) => state.auth);
+  let { isLoggin } = useSelector((state) => state.auth); 
+  isLoggin = true;
   return (
-    <Suspense fallback={<Spinner/>}>
-      <Routes>
 
-        <Route path="/" element={isLoggin ? <HomeHeader /> : <UserHeader/>}>
-          <Route index element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/singup" element={<Singup />} />
-          {isLoggin && (
-            <>
-              <Route path="/calculator" />
-              <Route path="/dairy" />
+
+    
+    <Suspense fallback={<spinner/>}>
+      {isLoggin ? <UserHeader /> : <HomeHeader />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/singup" element={<Singup />} />
+        {isLoggin && (
+          <>
+            <Route path="/calculator" element={<CalculatorPage />} />
+            <Route path="/dairy" element={<Diary />} />
             </>
-          )}
-        </Route>
+        )}
       </Routes>
-      
     </Suspense>
   );
 }
