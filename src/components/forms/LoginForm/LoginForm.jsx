@@ -9,7 +9,7 @@ import {
   SubmitWrapper
 } from "../Common/Form.styled.js";
 import { SubmitButton } from "../../Buttons/SubmitButton/SubmitButton.jsx";
-import { useNavigate } from "react-router-dom";
+
 
 
 const handleSendToRegistration = (e) =>{
