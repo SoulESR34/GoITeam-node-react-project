@@ -11,7 +11,7 @@ import { Diary } from "./pages/Dairy/Diary.jsx";
 import { CalculatorPage } from "./pages/Calculator/CalculatorPage.jsx";
 function App() {
 
-  const isLogged = useSelector((state) => state.auth)
+  const isLogged = useSelector((state) => state.isLogged)
 
   return (
     <Suspense fallback={<Spinner />}>

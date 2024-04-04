@@ -3,7 +3,7 @@ import { loginThunk, signupThunk } from "./operations";
 
 export const initialState = {
   user: { name: null, email: null },
-  isLogged: true,
+  isLogged: false,
   isLoading: false,
   error: null,
 };
