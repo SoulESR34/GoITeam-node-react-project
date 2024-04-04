@@ -14,7 +14,7 @@ import Modal from "../../Modal/Modal.jsx";
 
 import foodsNotAllowed from "./findFoodsNotAllowed.json";
 
-const Calculator = () => {
+export const Calculator = () => {
   const [formData, setFormData] = useState({
     height: "",
     age: "",
@@ -160,4 +160,3 @@ const findFoodsNotAllowed = () => {
   );
 };
 
-export default Calculator;

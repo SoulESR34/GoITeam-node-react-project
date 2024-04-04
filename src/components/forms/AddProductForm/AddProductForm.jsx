@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../actions/productActions";
 import "./AddProductForm.css";
 
-const AddProductForm = () => {
+export const AddProductForm = () => {
   const [productName, setProductName] = useState("");
   const [grams, setGrams] = useState("");
   const dispatch = useDispatch();
@@ -37,4 +37,4 @@ const AddProductForm = () => {
   );
 };
 
-export default AddProductForm;
+

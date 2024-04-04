@@ -1,10 +1,10 @@
 
 import PropTypes from "prop-types";
 
-const Calendar = ({ date }) => {
+export const Calendar = ({ date }) => {
   
   const formatDate = (date) => {
-    const options = { day: "numeric", month: "numeric", year: "numeric" };
+    const options = { day: "numeric", month: "numeric", yÑear: "numeric" };
     return new Date(date).toLocaleDateString(undefined, options);
   };
 
@@ -21,5 +21,4 @@ Calendar.propTypes = {
   date: PropTypes.instanceOf(Date).isRequired, 
 };
 
-export default Calendar;
 

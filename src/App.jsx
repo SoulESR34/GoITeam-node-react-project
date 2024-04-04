@@ -6,7 +6,7 @@ import { Singup } from "./pages/Auth/Signup/Signup.jsx";
 import { Login } from "./pages/Auth/Login/Login.jsx";
 import { Home } from "./pages/Home/Home.jsx";
 import { Suspense } from "react";
-
+import { Diary } from "./pages/Dairy/Diary.jsx"; 
 
 function App() {
   const { isLoggin } = useSelector((state) => state.auth);
@@ -21,7 +21,7 @@ function App() {
           {isLoggin && (
             <>
               <Route path="/calculator" />
-              <Route path="/dairy" />
+              <Route path="/dairy" element={ <Diary /> } />
             </>
           )}
         </Route>
