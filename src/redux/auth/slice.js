@@ -39,12 +39,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const addProduct = (productData) => {
-  return {
-    type: "ADD_PRODUCT", 
-    payload: productData, 
-  };
-};
 
 
 export const authReducer = authSlice.reducer;

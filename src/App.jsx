@@ -4,19 +4,22 @@ import { UserHeader } from "./pages/sections/Headers/UserHeader/UserHeader.jsx";
 import { Singup } from "./pages/Auth/Signup/Signup.jsx";
 import { Login } from "./pages/Auth/Login/Login.jsx";
 import { Home } from "./pages/Home/Home.jsx";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { Spinner } from "./components/Spinner/Spinner.jsx";
 import {useSelector} from 'react-redux';
 import { Diary } from "./pages/Dairy/Diary.jsx";
 import { CalculatorPage } from "./pages/Calculator/CalculatorPage.jsx";
 function App() {
 
-  const isLogged = useSelector((state) => state.isLogged)
+  const isLogged = useSelector((state) => state.auth)
+  useEffect(()=>{
+    console.log(isLogged)
+  }, [isLogged])
 
   return (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={!isLogged ? <HomeHeader /> : <UserHeader />}>
+        <Route path="/" element={isLogged ? <HomeHeader /> : <UserHeader />}>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/singup" element={<Singup />} />
