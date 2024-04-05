@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px;
+  margin-right: 10px;
+  color: #9B9FAA;
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #FC842D;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}

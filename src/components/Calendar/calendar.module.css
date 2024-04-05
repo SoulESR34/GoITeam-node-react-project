@@ -1,0 +1,17 @@
+.calendar {
+  display: flex;
+  align-items: center;
+}
+
+.calendar__date {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #212121;
+  margin-right: 10px;
+}
+
+.calendar__icon {
+  width: 20px;
+  height: 20px;
+}

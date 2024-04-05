@@ -11,14 +11,16 @@ export const WrapperInputs = styled.div`
   flex-wrap: wrap;
   height: 210px;
   gap: 40px;
+`
 
-  @media (width < 700px){
-    height: 470px;
-  }
+export const SubmitWrapper = styled.div`
+  display: flex;
+  gap: 10px;
 `
 
 export const Form = styled.form`
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 50px;
 `;
 export const Label = styled.label`

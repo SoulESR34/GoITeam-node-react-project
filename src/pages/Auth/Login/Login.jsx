@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeBackground } from '../../common/HomeBackground.styled'
+import { HomeBackground } from '../../../components/Backgrounds/HomeBackground.styled'
 import { LoginForm } from '../../../components/forms/LoginForm/LoginForm'
 
 export const Login = () => {
