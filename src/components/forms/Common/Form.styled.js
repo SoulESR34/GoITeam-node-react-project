@@ -11,10 +11,6 @@ export const WrapperInputs = styled.div`
   flex-wrap: wrap;
   height: 210px;
   gap: 40px;
-
-  @media (width < 700px){
-    height: 470px;
-  }
 `
 
 export const SubmitWrapper = styled.div`

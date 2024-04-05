@@ -13,4 +13,8 @@ export const Button = styled.button`
 
   margin-left: auto;
   margin-right: 0;
+
+  @media (width < 768px){
+    margin-left: 0;
+  }
 `;

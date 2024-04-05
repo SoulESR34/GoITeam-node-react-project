@@ -1,14 +1,15 @@
 import { Calculator } from "../../components/forms/Calculator/Calculator";
 import { Side } from "../../components/side/Side";
+import { PageContainer } from "../common/UserPagesDisposition";
 
 export const CalculatorPage = () => {   
     return (
     
       <div className="container">
-        <main>
+        <PageContainer>
             <Calculator />
             <Side />
-        </main>
+        </PageContainer>
       </div>
     
     );

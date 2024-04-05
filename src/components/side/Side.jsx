@@ -9,10 +9,7 @@ export const Side = () => {
 
   return (
     <div className="side">
-      {/* Contenido del resumen */}
       <Resumen />
-
-      {/* Lista de comidas no recomendadas */}
       <ComidasNoRecomendadas />
     </div>
   );

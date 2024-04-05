@@ -7,11 +7,12 @@ export const HomeBackground = styled.div`
   background-size: contain;
   background-position: right bottom;
   background-repeat: no-repeat;
-  height: 85vh;
+  height: 100vh;
 
 
   @media(width < 1024px){
     background-image: url(${fruitsTabletImg});
+    background-size: cover;
   }
 
   @media(width < 768px){

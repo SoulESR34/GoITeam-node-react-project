@@ -1,15 +1,18 @@
 import { Calendar } from "../../components/Calendar/Calendar";
 import { DiaryProductsList } from "../../components/Diary/DiaryProductsList/DiaryProductsList";
 import { Side } from "../../components/side/Side";
+import { PageContainer } from "../common/UserPagesDisposition";
 
-export const Diary = () => { 
-    return (
-      <div className="container">
-        <main>
+export const Diary = () => {
+  return (
+    <div className="container">
+      <PageContainer>
+        <div>
           <Calendar date={new Date()} />
           <DiaryProductsList />
-          <Side />
-        </main>
-      </div>
-    );
-}
+        </div>
+        <Side />
+      </PageContainer>
+    </div>
+  );
+};
